@@ -1,6 +1,6 @@
 import { AppBar, Container, Drawer, Grid, makeStyles, Toolbar, Typography } from '@material-ui/core'
 import React  from 'react'
-const drawerwidth='200px'
+const drawerwidth='210px'
 const useStyle=makeStyles((theme)=>{
     return{
     footer:{
@@ -20,10 +20,12 @@ const useStyle=makeStyles((theme)=>{
         background:'#f9f9f9'
     },
      root:{
-        display:'flex'
+        display:'flex',
+        width: '100%'
     },
     appbar:{
-        width: `calc(100% - ${drawerwidth}px)`
+        width: `calc(100% - ${drawerwidth}px)`,
+        
     }
    
     }})
@@ -31,19 +33,20 @@ function Layout({children}) {
     const classes=useStyle()
     return (
         <div>
- <AppBar  className={classes.appbar}>
+             <div className={classes.root}>
+ <AppBar position="fixed" className={classes.appbar}>
                 <Toolbar >
                     <Typography variant='h4'  > Dengene Technology Solution</Typography>
                 </Toolbar>
                
             </AppBar>
-        
-        <div className={classes.root}>
-            
-           
-            <Drawer variant="permanent" anchor="left" classes={{paper: classes.drawer}} className={classes.drawer}>
+        <Drawer variant="permanent" anchor="left" classes={{paper: classes.drawer}} className={classes.drawer}>
                 this is biniyam
             </Drawer>
+       
+            
+           
+            
            <div className={classes.page}>
                 {children}
            </div>

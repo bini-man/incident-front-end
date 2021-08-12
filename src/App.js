@@ -32,7 +32,7 @@ function App() {
       
         <Switch>
       
-          <Route path="/">
+          <Route exact path="/">
           <Login/>
           </Route>
           <Route path="/createIncident">
